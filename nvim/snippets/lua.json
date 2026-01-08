@@ -1,0 +1,15 @@
+{
+  "foo": {
+    "prefix": "foo",
+    "body": [
+      "local ${1:foo} = ${2:bar}",
+      "return ${0:baz}"
+    ]
+  },
+  "gra": {
+	"prefix": "gra",
+	"body": [
+		"love.graphics"
+	]
+  }
+}
