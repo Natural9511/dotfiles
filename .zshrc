@@ -12,7 +12,10 @@ echo "Hello Nature!"
 
 
 alias ls='ls --color=auto'
+alias ls='lsd'
+
 alias sd='shutdown now'
+
 alias gs='git status'
 alias gl='git log'
 alias gc='git checkout'
@@ -43,10 +46,8 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 
 export PATH="$HOME/scripts/:$PATH"
+export XDG_CONFIG_HOME="/home/nature/.config"
 
-
-
-alias ls='lsd'
 
 
 
