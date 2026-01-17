@@ -274,6 +274,13 @@ exec --no-startup-id foot
 #rename  workspace 9  to "9: Music"
 #rename  workspace 10 to "10: Browser"
 
+
+
+
+bindsym $mod+y exec openRecode
+
+
+
 ##change##
 exec /usr/local/bin/xray -config /home/nature/config.json
 
