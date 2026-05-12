@@ -282,7 +282,8 @@ bindsym $mod+y exec openRecode
 
 
 ##change##
-exec /usr/local/bin/xray -config /home/nature/config.json
+exec /usr/local/bin/xray run -confdir /home/nature/Documents/xrayConf
+exec /usr/bin/syncthing --no-browser
 
 
 include /etc/sway/config.d/*
