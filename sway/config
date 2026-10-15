@@ -241,8 +241,8 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 
 
 #
-    bindsym $mod+p exec grim
-    bindsym $mod+Shift+p exec slurp | grim -g - 
+    bindsym $mod+p exec grim && paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
+    bindsym $mod+Shift+p exec slurp | grim -g - && paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 
 
 #
@@ -284,6 +284,10 @@ bindsym $mod+y exec openRecode
 ##change##
 exec /usr/local/bin/xray run -confdir /home/nature/Documents/xrayConf
 exec /usr/bin/syncthing --no-browser
+
+
+
+for_window [app_id="KeePassXC"] floating enable
 
 
 include /etc/sway/config.d/*
