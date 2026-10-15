@@ -24,7 +24,47 @@ alias gc='git checkout'
 
 setopt hist_verify
 
+
+
+# for zsh vim mode 
 bindkey -v
+export KEYTIMEOUT=5
+
+function zle-keymap-select {
+	if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
+		# normal mode: block cursor
+		echo -ne '\e[1 q'
+	elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} == '' ]] || [[ $1 = 'beam' ]]; then
+		# Insert mode: line cursor
+		echo -ne '\e[5 q'
+	fi
+}
+
+zle -N zle-keymap-select
+
+# init enter shell setting line cursor
+zle-line-init() {
+	zle --K viins
+	echo -ne '\e[5 q'
+}
+zle -N zle-line-init
+
+echo -ne '\e[5 q'
+
+
+
+#Smart Brackets
+
+if [[ ! -d ~/.config/zsh/zsh-autopair ]]; then
+	git clone https://github.com/hlissner/zsh-autopair ~/.config/zsh/zsh-autopair
+fi
+
+source ~/.config/zsh/zsh-autopair/autopair.zsh
+autopair-init
+
+
+
+
 
 
 function ra_dot ()
