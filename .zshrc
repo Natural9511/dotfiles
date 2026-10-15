@@ -98,3 +98,7 @@ setopt prompt_subst
 RPROMPT='%(?..%K{red}(%?%)%k)%B%K{blue}${vcs_info_msg_0_}%k%b'
 # PROMPT='${vcs_info_msg_0_}%# '
 zstyle ':vcs_info:git:*' formats '%b'
+
+
+# Hermes Agent — ensure ~/.local/bin is on PATH
+export PATH="$HOME/.local/bin:$PATH"
