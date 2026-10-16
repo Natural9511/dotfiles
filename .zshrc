@@ -59,13 +59,19 @@ echo -ne '\e[5 q'
 
 
 
+
+export PATH="$HOME/scripts/:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+
+
 #Smart Brackets
 
-if [[ ! -d ~/.config/zsh/zsh-autopair ]]; then
-	git clone https://github.com/hlissner/zsh-autopair ~/.config/zsh/zsh-autopair
+if [[ ! -d $XDG_CONFIG_HOME/zsh/zsh-autopair ]]; then
+	git clone https://github.com/hlissner/zsh-autopair $XDG_CONFIG_HOME/zsh/zsh-autopair
 fi
 
-source ~/.config/zsh/zsh-autopair/autopair.zsh
+source $XDG_CONFIG_HOME/zsh/zsh-autopair/autopair.zsh
 autopair-init
 
 
@@ -95,8 +101,6 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
-export PATH="$HOME/scripts/:$PATH"
-export XDG_CONFIG_HOME="/home/nature/.config"
 
 
 
@@ -114,12 +118,12 @@ zstyle ':vcs_info:git:*' formats '%b'
 
 # cache on
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "/home/nature/.cache/zsh/.zcompcache"
+zstyle ':completion:*' cache-path "$HOME/.cache/zsh/.zcompcache"
 
 
 ############## heritage from virtualbox fedora-sway
 # zstyle ':completion:*' completer _complete _ignored _correct _approximate
-# zstyle :compinstall filename '/home/nature/.zshrc'
+# zstyle :compinstall filename '$HOME/.zshrc'
 #
 #
 # zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
@@ -127,7 +131,7 @@ zstyle ':completion:*' cache-path "/home/nature/.cache/zsh/.zcompcache"
 #
 # autoload -Uz zmv
 # . /usr/libexec/z.sh
-# . "/home/nature/.acme.sh/acme.sh.env"
+# . "$HOME/.acme.sh/acme.sh.env"
 ##############
 
 
