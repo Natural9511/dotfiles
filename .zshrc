@@ -22,6 +22,12 @@ alias gc='git checkout'
 
 
 
+
+# Because if fpath no update,complete system will not be found
+fpath=($HOME/Documents/complete $fpath)
+
+
+
 setopt hist_verify
 
 
@@ -64,6 +70,8 @@ autopair-init
 
 
 
+# default text editor
+export EDITOR="/usr/bin/nvim"
 
 
 
@@ -83,6 +91,8 @@ bindkey . ra_dot
 zstyle ':completion:*' format %d
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+# Ignore case-sensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
 export PATH="$HOME/scripts/:$PATH"
