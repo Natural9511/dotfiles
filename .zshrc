@@ -117,6 +117,19 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "/home/nature/.cache/zsh/.zcompcache"
 
 
+############## heritage from virtualbox fedora-sway
+# zstyle ':completion:*' completer _complete _ignored _correct _approximate
+# zstyle :compinstall filename '/home/nature/.zshrc'
+#
+#
+# zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+#
+#
+# autoload -Uz zmv
+# . /usr/libexec/z.sh
+# . "/home/nature/.acme.sh/acme.sh.env"
+##############
+
 
 # Hermes Agent — ensure ~/.local/bin is on PATH
 export PATH="$HOME/.local/bin:$PATH"
