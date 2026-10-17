@@ -66,6 +66,10 @@ return {
 			setup("python-lsp-server",{})
 			setup("rust-analyzer",{})
 			setup("bash-language-server",{})
+			setup("typescript-language-server",{})
+			setup("zls",{})
+			setup("intelephense",{})
+			--setup("jls",{})
 			setup("omnisharp", {
 				capabilities = require("blink.cmp").get_lsp_capabilities(),
 			})
