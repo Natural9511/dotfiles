@@ -47,7 +47,7 @@ return {
 				end
 
 				local lsp = require("mason-lspconfig.mappings.server").package_to_lspconfig[names]
-				vim.lsp.config(lsp,configs)
+				vim.lsp.config(lsp, configs)
 				vim.lsp.enable(lsp)
 			end
 
@@ -214,5 +214,14 @@ return {
     		---@module 'render-markdown'
     		---@type render.md.UserConfig
     		opts = {},
+	},
+	-- Highlight colors within Neovim
+	-- One of its functions is to display the colors defined in CSS files
+	{
+		"brenoprata10/nvim-highlight-colors",
+		config = function ()
+			vim.opt.termguicolors = true
+			require("nvim-highlight-colors").setup({})
+		end
 	}
 }
