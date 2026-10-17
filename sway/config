@@ -34,7 +34,7 @@ set $menu wmenu-run
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg, jxl-pixbuf-loader
 #####output * bg /usr/share/backgrounds/default.jxl fill
-output * bg ~/Pictures/wallpaper/1 fill
+output * bg $HOME/Pictures/wallpaper/1 fill
 
 #output * res --custom 1280x720
 
@@ -256,7 +256,7 @@ bar {
     # The default just shows the current date and time.
 
     #status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-    status_command ~/.config/sway/startup.sh
+    status_command $XDG_CONFIG_HOME/sway/startup.sh
     separator_symbol " | "
 
     colors {
@@ -282,7 +282,7 @@ bindsym $mod+y exec openRecode
 
 
 ##change##
-exec /usr/local/bin/xray run -confdir /home/nature/Documents/xrayConf
+exec /usr/local/bin/xray run -confdir $HOME/Documents/xrayConf
 exec /usr/bin/syncthing --no-browser
 
 
