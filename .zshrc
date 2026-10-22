@@ -105,14 +105,33 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
 
+
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
-RPROMPT='%(?..%K{red}(%?%)%k)%B%K{blue}${vcs_info_msg_0_}%k%b'
-# PROMPT='${vcs_info_msg_0_}%# '
-zstyle ':vcs_info:git:*' formats '%b'
+RPROMPT='%(?..%K{red}(%?%)%k)%B${vcs_info_msg_0_}%b'
+# PROMPT='${vcs_info_msg_0_}%
+
+
+# untracked file is exist origin format string
+# using hook to solve it
+zstyle ':vcs_info:git+set-message:*' hooks git-untracked
+
++vi-git-untracked() {
+	if [[ -n $(git ls-files --others) ]]; then
+		hook_com[unstaged]+='%F{yellow}??%f'
+	fi
+}
+
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '%F{green}M%f'
+zstyle ':vcs_info:git:*' unstagedstr '%F{red}M%f'
+# staged | unstaged | untracked | branch
+zstyle ':vcs_info:git:*' formats '%c%u%K{blue}%b%k'
+
+
 
 
 
