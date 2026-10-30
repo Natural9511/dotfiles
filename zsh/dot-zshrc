@@ -20,7 +20,7 @@ alias gs='git status'
 alias gl='git log'
 alias gc='git checkout'
 
-
+alias man='man --regex'
 
 
 # Because if fpath no update,complete system will not be found
