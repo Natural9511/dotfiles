@@ -60,6 +60,19 @@ echo -ne '\e[5 q'
 
 
 
+# solve vi-mode zle delete past the start char of insert mode
+# https://www.zsh.org/mla/users/2009/msg00810.html
+#
+#bindkey -M viins "^?" backward-delete-char
+#bindkey -M viins "^H" backward-delete-char
+
+zle -A .backward-delete-char vi-backward-delete-char
+zle -A .backward-kill-word vi-backward-kill-word
+
+
+
+
+
 export PATH="$HOME/scripts/:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -104,8 +117,8 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 
 
-
-
+# git
+#
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
@@ -130,6 +143,7 @@ zstyle ':vcs_info:git:*' stagedstr '%F{green}M%f'
 zstyle ':vcs_info:git:*' unstagedstr '%F{red}M%f'
 # staged | unstaged | untracked | branch
 zstyle ':vcs_info:git:*' formats '%c%u%K{blue}%b%k'
+
 
 
 # history
