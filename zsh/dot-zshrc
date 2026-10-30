@@ -132,6 +132,18 @@ zstyle ':vcs_info:git:*' unstagedstr '%F{red}M%f'
 zstyle ':vcs_info:git:*' formats '%c%u%K{blue}%b%k'
 
 
+# history
+#
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+# share history for muti-sessions, write & read $HISTFILE incrementally
+setopt sharehistory
+# ignore duplicate continuous command
+setopt hist_ignore_dups
+# hidden command from history using prepended space(temporory exist in history until next command run)
+setopt hist_ignore_space
+
 
 
 
